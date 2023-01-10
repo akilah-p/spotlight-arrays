@@ -79,16 +79,29 @@ export const getFirstTwoArgs = (a, b, ...rest) => {
 //    return a NEW object, do not modify the object passed in to the function
 //    use spread operator to create a new object
 
-export const addSneakerCount = () => { }
+export const addSneakerCount = ({ shoes, slogan, logo, headquarters }) => {
+  const shoeList = [...shoes];
+  const sneakerCount = shoeList.length
+  return { shoeList, slogan, logo, headquarters, sneakerCount }
+}
 
 // INPUT: brands from data.js
 // OUTPUT: the brand names listed
 // REQS: use Object.keys to solve
-export const getBrandNames = () => { }
+
+export const getBrandNames = (brands) => {
+  return Object.keys(brands)
+}
 
 // INPUT: brands from data.js
 // OUTPUT: total number of sneaker types across all brands (14)
-export const totalSneakerCount = () => { }
+export const totalSneakerCount = (brands) => {
+  const sneakers = [];
+  for (const brand of Object.keys(brands)) {
+    sneakers.push(...brands[brand].shoes)
+  }
+  return sneakers.length
+}
 
 // INPUT: An object
 // OUTPUT: An array with key value pairs converted to arrays
@@ -97,6 +110,10 @@ export const totalSneakerCount = () => { }
 // convertToArray({}) => []
 // Source: https://edabit.com/challenge/pPNAs5PvB3WvnDwDM
 
-export const convertToArray = () => { }
-
+export const convertToArray = (obj) => {
+  const arr = []
+  for (const key of Object.keys(obj))
+    arr.push([key, obj[key]])
+}
+return arr
 //
