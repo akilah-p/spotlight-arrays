@@ -114,6 +114,6 @@ export const convertToArray = (obj) => {
   const arr = []
   for (const key of Object.keys(obj))
     arr.push([key, obj[key]])
+  return arr
 }
-return arr
 //
