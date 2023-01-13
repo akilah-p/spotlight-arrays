@@ -4,7 +4,7 @@
 // REQS: use destructuring and the function should be a single line
 
 export const getName = ({ name }) => {
-  return `${name}`;
+  return `${name}`
 }
 
 // INPUT: an object with a nested "address" attribute such as
@@ -19,11 +19,14 @@ export const printAddress = ({ name, address: { street, number, city, country } 
 // REFACTOR CHALLENGE
 // Refactor this function so that all values in the object are destructured
 // as part of the function definitions (i.e. there should be no dots in the template literals)
-export const printUserInfo = ({ username, name: { first, last }, info: {
-  favorites: { color, food },
-  pet: { name },
-  address: { number, street, city, country },
-},
+export const printUserInfo = ({
+  username,
+  name: { first, last },
+  info: {
+    favorites: { color, food },
+    pet: { name },
+    address: { number, street, city, country },
+  },
 }) => {
   return `
     Username: ${username},
@@ -80,7 +83,7 @@ export const getFirstTwoArgs = (a, b, ...rest) => {
 //    use spread operator to create a new object
 
 export const addSneakerCount = ({ shoes, slogan, logo, headquarters }) => {
-  const shoeList = [...shoes];
+  const shoeList = [...shoes]
   const sneakerCount = shoeList.length
   return { shoeList, slogan, logo, headquarters, sneakerCount }
 }
@@ -96,7 +99,7 @@ export const getBrandNames = (brands) => {
 // INPUT: brands from data.js
 // OUTPUT: total number of sneaker types across all brands (14)
 export const totalSneakerCount = (brands) => {
-  const sneakers = [];
+  const sneakers = []
   for (const brand of Object.keys(brands)) {
     sneakers.push(...brands[brand].shoes)
   }
@@ -112,10 +115,7 @@ export const totalSneakerCount = (brands) => {
 
 export const convertToArray = (obj) => {
   const arr = []
-  for (const key of Object.keys(obj))
-    arr.push([key, obj[key]])
+  for (const key of Object.keys(obj)) arr.push([key, obj[key]])
   return arr
 }
 //
-
-
